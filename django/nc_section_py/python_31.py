@@ -1,4 +1,4 @@
-# 메소드, 상속, 다중상속, 연산자 오버로딩
+# pass
 
 # 일반유닛
 class Unit: # 부모클래스
@@ -16,7 +16,6 @@ class Unit: # 부모클래스
         # print("체력 {0}, 공격력 {1}".format(self.hp,self.damage))
         
 # 공격유닛
-# 유닛 클래스 상속받아 사용하기
 class AttackUnit(Unit): # 자식클래스
     def __init__(self,name,hp,speed,damage):
         Unit.__init__(self,name,hp,speed) # 상속받은 클래스의 생성자를 상속받아 사용, 기존과 동일하게 self 를 사용할 수 있음
@@ -50,22 +49,19 @@ class FlyableAttackUnit(AttackUnit,Flyable):
         print("[공중 유닛 이동]")
         self.fly(self.name,location)
 
-#벌쳐
-vulture = AttackUnit("벌쳐",80,10,20)
-#배틀크루져
-battlecruiser = FlyableAttackUnit("배틀크루져",500,25,3)
+# 건물
+class BuildingUnit(Unit):
+    def __init__(self,name,hp,location):
+        pass # 통과시킨다 반복문의 continue 같은 느낌..
+    
+# 서플
+supply_depot = BuildingUnit("서플라이 디폿",500,"7시")
 
-vulture.move("11시") # 상속받은 Unit 의 move 함수
-# battlecruiser.fly("배틀크루져","9시")
-battlecruiser.move("9시") # FlyableAttackUnit 클래스의 move 함수
-print("\n----------------------\n")
-# 발키리
-valkyrie = FlyableAttackUnit("발키리",200,6,5) 
-valkyrie.fly(valkyrie.name,"3시") # 상속받은 Flyable 클래스의 fly 함수
-print("\n----------------------\n")
-# 파이어뱃
-firebat1 = AttackUnit("firebat",50,16,25) # AttackUnit 클래스의 함수들을 사용
-firebat1.attack("5시")
-# 두번 공격 받음
-firebat1.damaged(25)
-firebat1.damaged(25)
+def game_start():
+    print("[알림] 새로운 게임을 시작합니다.")
+    
+def game_over():
+    pass
+
+game_start()
+game_over()
