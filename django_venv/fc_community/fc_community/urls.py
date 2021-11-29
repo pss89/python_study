@@ -21,5 +21,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     # fcuser 하위의 urls 파일을 include
     path('fcuser/', include('fcuser.urls')),
+    path('board/', include('board.urls')),
     path('',home)
 ]
